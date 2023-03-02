@@ -24,7 +24,7 @@ function Posts() {
             <div className="flex justify-center">
               <div className="flex space-x-[12px] items-center">
                 <h1 className="mt-[30px] text-[30px] font-serif text-gray-500">All posts</h1>
-                <FaFeatherAlt className="text-[40px] text-purple-800 mt-[12px]" />
+                <FaFeatherAlt className="text-[40px] text-purple-800 mt-[25px]" />
               </div>
 
             </div>
@@ -35,7 +35,7 @@ function Posts() {
 
               {posts.map((post) => (
 
-                <Post onClick={() => setSelected(post)} key={post._id} postsId={post._id} title={post.title} author={post.author} description={post.description} />
+                <Post onClick={() => setSelected(post)} key={post._id} postsId={post._id} title={post.title} author={post.author} description={post.description} image={post.cover_image} />
               ))}
 
 

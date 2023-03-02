@@ -34,10 +34,10 @@ function CreatePost() {
     // })
 
     // console.log("post staged", post)
-    const handlePhoto = (e) => {
-        setImage(e.target.files[0])
-        console.log("image", image)
-    }
+    // const handlePhoto = (e) => {
+    //     setImage(e.target.files[0])
+    //     console.log("image", image)
+    // }
 
     const addPost = async (e) => {
         e.preventDefault()
@@ -46,7 +46,7 @@ function CreatePost() {
             author: author,
             user: author,
             description: description,
-            coverImage:image,
+            cover_image:image,
             published_date: Date.now(),
 
         })
@@ -89,18 +89,32 @@ function CreatePost() {
                     </div>
                 </div>
 
-                {/* Cover photo */}
                 <div className="mt-[50px] ml-[45px] block">
+                    <div className="flex space-x-[15px] items-center">
+                        <MdOutlineTitle className="h-[20px] text-[#2E1F5E] " />
+                        <p className="text-[#2E1F5E] text-[18px] font-[300]">Cover Image Link(temporary)</p>
+                    </div>
+
+                    <div className="">
+                        {/* Input field */}
+                        <input value={image} onChange={(e) => setImage(e.target.value)} className="w-[700px] h-[49px] border border-gray-300 mt-[20px] px-[10px]" placeholder="Enter a title here" />
+                    </div>
+                </div>
+
+                {/* Cover photo */}
+
+                {/* Uncomment below section later */}
+                {/* <div className="mt-[50px] ml-[45px] block">
                     <div className="flex space-x-[15px] items-center">
                         <MdOutlineTitle className="h-[20px] text-[#2E1F5E] " />
                         <p className="text-[#2E1F5E] text-[18px] font-[300]">Upload a cover image</p>
                     </div>
 
                     <div className="">
-                        {/* Input field */}
                         <input onChange={handlePhoto}type="file" accept='.png, .jpg, .jpeg' className="w-[700px] h-[49px] border border-gray-300 mt-[20px] p-[10px]" placeholder="Enter an author here" />
                     </div>
-                </div>
+                </div> 
+                 */}
 
 
                 <div className="mt-[50px] ml-[45px] block">

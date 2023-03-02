@@ -27,15 +27,15 @@ function EditPost() {
     const [updatedTitle, setUpdatedTitle] = useState(selected.title)
     const [updatedAuthor, setUpdatedAuthor] = useState(selected.author)
     const [updatedDescription, setUpdatedDescription] = useState(selected.description)
-
-
+    const [updatedCoverImage, setUpdatedCoverImage] = useState(selected.coverImage)
 
     const updatePost = () => {
 
         axios.put(`http://localhost:8082/api/posts/${id}`, {
             title: updatedTitle,
             author: updatedAuthor,
-            description: updatedDescription
+            description: updatedDescription,
+            cover_image:updatedCoverImage
 
         }).then((res) => {
             console.log("Post succesfully added", res)
@@ -85,6 +85,19 @@ function EditPost() {
                         <input value={updatedAuthor} onChange={(e) => setUpdatedAuthor(e.target.value)} className="w-[700px] h-[49px] border border-gray-300 mt-[20px] px-[10px]" placeholder="Enter an author here" />
                     </div>
                 </div>
+
+                <div className="mt-[50px] ml-[45px] block">
+                    <div className="flex space-x-[15px] items-center">
+                        <MdOutlineTitle className="h-[20px] text-[#2E1F5E] " />
+                        <p className="text-[#2E1F5E] text-[18px] font-[300]">Cover Image URL (temporary maybe use firebase to generate link)</p>
+                    </div>
+
+                    <div className="">
+                        {/* Input field */}
+                        <input value={updatedCoverImage} onChange={(e) => setUpdatedCoverImage(e.target.value)} className="w-[700px] h-[49px] border border-gray-300 mt-[20px] px-[10px]" placeholder="Enter a link here" />
+                    </div>
+                </div>
+
 
 
                 <div className="mt-[50px] ml-[45px] block">

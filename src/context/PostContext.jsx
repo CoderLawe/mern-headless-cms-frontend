@@ -12,12 +12,13 @@ export const PostProvider = (props) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:8082/api/posts")
+        axios.get(`https://mern-cms-backend.adaptable.app/api/posts`)
             .then((res) => {
                 setPosts(res.data)
             })
             .catch((err) => console.log(err))
-    }, [])
+
+    }, [posts])
     return (
         <PostContext.Provider value={[id, setId]}>
             <SelectedContext.Provider value={[selected, setSelected]}>

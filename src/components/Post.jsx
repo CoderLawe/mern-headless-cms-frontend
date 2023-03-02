@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { PostContext, SelectedContext } from '../context/PostContext';
 import parse from 'html-react-parser';
+import axios from 'axios';
 
-function Post({ title, author, description, postsId }) {
+function Post({ title, author, description, postsId, image }) {
 
 
     const [id, setId] = useContext(PostContext);
@@ -14,7 +15,12 @@ function Post({ title, author, description, postsId }) {
     //     setPost(selected)
     //     console.log("post clicked", selected)
     // }
-    // How to display styled data from ckeditor in react ?
+
+    const deletePost = (postsId) => {
+        axios.delete(`http://localhost:8082/api/posts/${postsId}`).then(() => {
+            console.log("post succesfully deleted")
+        }).catch((err) => {console.log("Deletion failed with error", err)})
+    }
     useEffect(() => {
         setId(postsId)
         console.log(id)
@@ -32,11 +38,11 @@ function Post({ title, author, description, postsId }) {
             <div className="flex h-full mt-[50px]">
                 {/* Left side */}
 
-                <img onClick={() => setSelected({ title, author, description, postsId })} className="w-[280px] h-full object-cover rounded-[8px]" src="https://cdn.discordapp.com/attachments/817048198022430761/1056661734913474640/Screen_Shot_2022-12-24_at_7.22.38_PM.png" />
+                <img onClick={() => setSelected({ title, author, description, postsId })} className="w-[280px] h-full object-cover rounded-[8px]" src={image ? image : "https://cdn.discordapp.com/attachments/817048198022430761/1056661734913474640/Screen_Shot_2022-12-24_at_7.22.38_PM.png"} />
 
                 {/* Right side */}
                 <div className="block space-y-[10px]  ml-[30px]  ">
-                    <h2 className="text-[20px] text-gray-800 font-serif whitespace-nowrap">{title}</h2>
+                    <h2 className="text-[20px] text-gray-800 font-serif leading-[30px] w-[320px]">{title}</h2>
                     <p className="text-gray-700">By {author}</p>
                     <p className="text-gray-500 font-serif leading-[30px] text-ellipsis overflow-hidden ... max-h-[90px]">
                         {
@@ -52,7 +58,7 @@ function Post({ title, author, description, postsId }) {
                             <button onClick={() => setSelected({ title, author, description, postsId })} className="font-serif bg-green-600 text-gray-700 px-[8px] py-[6px]">Edit</button>
 
                         </Link>
-                        <button className="font-serif bg-red-400 text-gray-900 px-[8px] py-[6px]">Delete</button>
+                        <button onClick={() => deletePost(postsId)} className="font-serif bg-red-400 text-gray-900 px-[8px] py-[6px]">Delete</button>
 
                     </div>
                 </div>
