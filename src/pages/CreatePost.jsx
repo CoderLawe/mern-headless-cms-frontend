@@ -41,7 +41,7 @@ function CreatePost() {
 
     const addPost = async (e) => {
         e.preventDefault()
-        axios.post('http://localhost:8082/api/posts/', {
+        axios.post('https://mern-cms-backend.adaptable.app/api/posts/', {
             title: title,
             author: author,
             user: author,

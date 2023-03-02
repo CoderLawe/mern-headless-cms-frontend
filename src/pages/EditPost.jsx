@@ -31,7 +31,7 @@ function EditPost() {
 
     const updatePost = () => {
 
-        axios.put(`http://localhost:8082/api/posts/${id}`, {
+        axios.put(`https://mern-cms-backend.adaptable.app/api/posts/${id}`, {
             title: updatedTitle,
             author: updatedAuthor,
             description: updatedDescription,
