@@ -38,6 +38,15 @@ function Sidebar() {
                             <BsChevronCompactRight className="opacity-0 group-hover:opacity-100  justify-end text-[10px] text-purple-100 mr-[15.5px]" />
                         </div>
 
+                        <div className="flex justify-between group items-center w-[100%] hover:bg-[#261A4E] transition-all duration-500 ease-out cursor-pointer py-[14px] ">
+                            <div className="flex items-center space-x-[10px]  ml-[20px]">
+                                <AiFillFolder className="text-purple-100 text-[20px]" />
+                                <p className="text-[14px] text-purple-100">Sites(with functionality per user)</p>
+                            </div>
+
+                            <BsChevronCompactRight className="opacity-0 group-hover:opacity-100  justify-end text-[10px] text-purple-100 mr-[15.5px]" />
+                        </div>
+
 
                         <Link className="flex justify-between group items-center w-[100%] hover:bg-[#261A4E] transition-all duration-500 ease-out cursor-pointer py-[14px] " to="/posts">
                             <div className="flex items-center space-x-[10px]  ml-[20px]">

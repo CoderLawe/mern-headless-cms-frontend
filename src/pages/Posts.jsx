@@ -48,6 +48,7 @@ function Posts() {
         <div className="block">
           {/* Right side */}
           <div className="flex justify-center">
+        
             <AiOutlinePlus className="text-[20px]" />
           </div>
         </div>
